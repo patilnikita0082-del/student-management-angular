@@ -1,0 +1,72 @@
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">🎓 Student Portal</div>
+    <div class="subtitle">Management Dashboard</div>
+  </header>
+
+  <div class="content">
+
+    <!-- FORM -->
+    <div class="card form-card">
+
+      <h3>➕ Student Form</h3>
+
+      <label>Name</label>
+      <input [(ngModel)]="student.name" placeholder="Enter name">
+
+      <label>Email</label>
+      <input [(ngModel)]="student.email" placeholder="Enter email">
+
+      <label>Age</label>
+      <input type="number" [(ngModel)]="student.age" placeholder="Enter age">
+
+      <label>Course</label>
+      <input [(ngModel)]="student.course" placeholder="Enter course">
+
+      <div class="actions">
+        <button type="button" class="btn save" (click)="saveStudent()">Save</button>
+        <button type="button" class="btn clear" (click)="closeForm()">Clear</button>
+      </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="card table-card">
+
+      <div class="table-header">
+        <h3>📋 Student Records</h3>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let s of students">
+            <td>{{ s.name }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.age }}</td>
+            <td>{{ s.course }}</td>
+            <td>
+              <button type="button" class="edit" (click)="edit(s)">Edit</button>
+              <button type="button" class="delete" (click)="delete(s.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
